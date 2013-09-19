@@ -7,6 +7,9 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{5dd4654b-b574-4d5c-a239-ca6442de27ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -29,5 +32,40 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\CloseNormal.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\CloseSelected.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Facetime-icon.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Facetime-icon_selected.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\HelloWorld.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\NT2C_Tilesets.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\ortho-objects.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\ortho-test2.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\sample_map.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\test.tmx">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\sample_map.tmx">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
 </Project>

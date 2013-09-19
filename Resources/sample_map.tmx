@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="sample_map" tilewidth="32" tileheight="32">
+  <image source="sample_map.png" width="960" height="640"/>
+ </tileset>
+ <layer name="background" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwV1YOyGAYAAMEX27Zt27Zt22hs27Zt27Zts0EbJ93O3H7DBQoICAhMEIISjOCEICShCE0YwhKO8EQgIpGITBSiEo3oxCAmsYhNHOISj/gkICGJSEwSkpKM5KQgJalITRrSko70ZCAjmchMFrKSjezkICe5yE0e8pKP/BSgIIUoTBGKUozilKAkpShNGcpSjvJUoCKVqEwVqlKN6tSgJrWoTR3qUo/6NKAhjWhME5rSjOa0oCWtaE0b2tKO9nSgI53oTBe60o3u/EUPetKL3vShL/3ozwAGMojBDGEowxjOCEYyitGMYSzjGM8EJjKJyUxhKtOYzgxmMovZzGEu85jPAhayiMUsYSnLWM4KVrKK1axhLetYzwY2sonNbGEr29jODnayi93sYS/72M8BDnKIwxzhKMc4zglOcorTnOEs5zjPBS5yictc4SrXuM4NbnKL29zhLve4zwMe8ojHPOEpz3jOC17yite84S3veM/ffOAjn/jMP/zLF77yje/84Ce/+M0fAgKJwAQhKMEITghCEorQhCEs4QhPBCISichEISrRiE4MYhKL2MQhLvGITwISkojEJCEpyUhOClKSitSkIS3pSE8GMpKJzGQhK9nITg5ykovc5CEv+chPAQpSiMIUoSjFKE4JSlKK0pShLOUoTwUqUonKVKEq1ahODWpSi9rUoS71qE8DGtKIxjShKc1oTgta0orWtKEt7WhPBzrSic50oSvd6M5f9KAnvehNH/rSj/4MYCCDGMwQhjKM4YxgJKMYzRjGMo7xTGAik5jMFKYyjenMYCazmM0c5jKP+SxgIYtYzBKWsozlrGAlq1jNGtayjvVsYCOb2MwWtrKN7exgJ7vYzR72so/9HOAghzjMEY5yjOOc4CSnOM0ZznKO81zgIpe4zBWuco3r3OAmt7jNHe5yj/s84CGPeMwTnvKM57zgJa94zRve8o73/M0HPvKJz/zDv3zhK9/4zg9+8ovf/OH/8QciMEEISjCCE4KQhCI0YQhLOMITgYhEIjJRiEo0ohODmMQiNnGISzzik4CEJCIxSUhKMpKTgpSkIjVpSEs60pOBjGQiM1nISjayk4Oc5CI3echLPvJTgIIUojBFKEoxilOCkpSiNGUoSznKU4GKVKIyVahKNapTg5r8B03FEA4=
+  </data>
+ </layer>
+ <objectgroup name="land" width="30" height="20">
+  <object x="109" y="266" width="50" height="46"/>
+  <object x="222" y="181" width="55" height="50"/>
+  <object x="329" y="100" width="58" height="58"/>
+  <object x="340" y="201" width="50" height="48"/>
+  <object x="207" y="302" width="58" height="50"/>
+  <object x="278" y="429" width="52" height="46"/>
+  <object x="530" y="250" width="26" height="34"/>
+  <object x="412" y="354" width="22" height="22"/>
+ </objectgroup>
+ <objectgroup name="path" width="30" height="20">
+  <object name="first" type="polygonline" x="160" y="293">
+   <polyline points="0,0 26,-3 43,-20 75,-29 99,-40 112,-59"/>
+  </object>
+  <object type="polygonline" x="160" y="298">
+   <polyline points="0,0 11,21 28,36 37,61 59,78 83,74"/>
+  </object>
+  <object type="polygonline" x="246" y="370">
+   <polyline points="0,0 23,-15 52,-12 91,0 137,0 176,-1"/>
+  </object>
+  <object type="polygonline" x="245" y="374">
+   <polyline points="0,0 15,15 45,17 80,27 95,56 102,86"/>
+  </object>
+  <object type="polygonline" x="275" y="231">
+   <polyline points="0,0 28,-11 47,-32 57,-55 57,-81"/>
+  </object>
+  <object type="polygonline" x="333" y="151">
+   <polyline points="0,0 14,16 42,19 77,20 95,39 93,68 82,92 50,109"/>
+  </object>
+  <object type="polygonline" x="277" y="235">
+   <polyline points="0,0 37,-1 52,21 80,22 105,24"/>
+  </object>
+  <object type="polygonline" x="387" y="259">
+   <polyline points="0,0 29,-7 56,-8 78,-1 109,8 147,11"/>
+  </object>
+  <object x="555" y="72">
+   <polygon points="0,0 -9,60 95,47 95,-37"/>
+  </object>
+ </objectgroup>
+</map>

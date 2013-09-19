@@ -1,6 +1,6 @@
 #include "HelloWorldScene.h"
 
-USING_NS_CC;
+
 
 CCScene* HelloWorld::scene()
 {
@@ -20,62 +20,68 @@ CCScene* HelloWorld::scene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !CCLayer::init() )
-    {
-        return false;
-    }
-    
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	if ( !CCLayer::init() )
+	{
+		return false;
+	}
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
+	CCTMXTiledMap* map = new CCTMXTiledMap();
+	map->initWithTMXFile("sample_map.tmx");
+	addChild(map, -1,1);
+	CCTMXObjectGroup* group = map->objectGroupNamed("path");
+	CCArray* objects = group->getObjects();
+	//CCDictionary* polyline = (CCDictionary*)group->objectNamed("first");
+	//CCLOG("polyline=%s", ((CCString*)polyline->objectForKey("polyline"))->getCString());
 
-    // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(HelloWorld::menuCloseCallback));
-    
-	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
 
-    // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu, 1);
 
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", 24);
-    
-    // position the label on the center of the screen
-    pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - pLabel->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-
-    // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
-    
+	CCDictionary* dict = NULL;
+	CCObject* pobj = NULL;
+	CCARRAY_FOREACH(objects, pobj)
+	{
+		dict = (CCDictionary*)pobj;
+		if(dict->valueForKey("type")->m_sString == "polygonline")
+		{
+			//CCLOG("polyline=%s", ((CCString*)dict->objectForKey("polyline"))->getCString());
+			ParsePolyline(dict);
+		} 
+	}
     return true;
 }
 
+void HelloWorld::ParsePolyline(CCDictionary* dict)
+{
+
+	int offsetPosX = ((CCString*)dict->objectForKey("x"))->intValue();
+	int offsetPosY = ((CCString*)dict->objectForKey("y"))->intValue();
+
+	CCString* sPoint = (CCString*)dict->objectForKey("polyline");
+	string strPoint = sPoint->m_sString.substr(10,sPoint->m_sString.size());
+	const char* chPoint = strPoint.c_str();
+	stringstream pointsStream(chPoint);
+	string pointPair;
+	CCLOG("Polyline : %s", chPoint);
+    while(std::getline(pointsStream, pointPair, ' '))
+	{
+		CCLOG("PointPair : %s", pointPair.c_str());
+		stringstream pointStream(pointPair);
+		string xStr,yStr;
+		char buffer[32] = {0};
+        if(std::getline(pointStream, xStr, ','))
+		{
+			CCLOG("x string : %s", xStr.c_str());
+			int x = atoi(xStr.c_str()) + offsetPosX;
+			CCLOG("x : %d",x);
+		}
+
+		if(std::getline(pointStream, yStr, '\n'))
+		{
+			int y = atoi(yStr.c_str()) + offsetPosY;
+			CCLOG("y : %d",y);
+		}
+	}
+
+}
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
